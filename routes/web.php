@@ -117,7 +117,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/transaction/register', [TransactionController::class, 'registerTransaction'])->name('admin.transaction.register');
 
     // Rota para salvar a transação registrada pelo administrador
-    Route::post('admin/transaction/register', [TransactionController::class, 'storeTransaction'])->name('admin.transaction.store');
+    // Route::post('admin/transaction/register', [TransactionController::class, 'storeTransaction'])->name('admin.transaction.store');
 
     // Rota para visualizar transações
     Route::get('admin/transaction/view', [TransactionController::class, 'viewTransactions'])->name('admin.transaction.view');
