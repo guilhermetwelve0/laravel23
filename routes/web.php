@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\SupplierController;
