@@ -37,7 +37,7 @@ Route::post('registration_post', [AuthController::class, 'registration_post']);
 
 
 // Rotas protegidas para admin
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/smtp', [SMTPController::class, 'smtp']);
     Route::post('admin/smtp/update', [SMTPController::class, 'smtp_update']);
