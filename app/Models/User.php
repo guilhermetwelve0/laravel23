@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Request;
 
 class User extends Authenticatable
 {
@@ -45,4 +46,36 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    static public function getRecord()
+    {
+        $return = self::select('users.*')->orderBy('id', 'asc');
+
+        if(!empty(Request::get('id')))
+        {
+            $return = $return->where('id', '=', Request::get('id'));
+        }
+        if(!empty(Request::get('name')))
+        {
+            $return = $return->where('name', 'like', '%'.Request::get('name').'%');
+        }
+        if(!empty(Request::get('email')))
+        {
+            $return = $return->where('email', 'like', '%'.Request::get('email').'%');
+        }
+        if(!empty(Request::get('created_at')))
+        {
+            $return = $return->where('created_at', 'like', '%'.Request::get('created_at').'%');
+        }
+        if(!empty(Request::get('updated_at')))
+        {
+            $return = $return->where('updated_at', 'like', '%'.Request::get('updated_at').'%');
+        }
+          
+        
+        $return = $return->where('is_delete', '=', 0)->paginate(10);
+        return $return; 
+    }
+
+    
+    
 }
