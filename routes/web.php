@@ -125,7 +125,7 @@ Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(
 
     // Rotas para transações
     Route::get('admin/transaction/add', [TransactionController::class, 'create'])->name('admin.transaction.add');
-    // Route::post('admin/transaction/add', [TransactionController::class, 'store'])->name('admin.transaction.store');
+    Route::post('admin/transaction/add', [TransactionController::class, 'store'])->name('admin.transaction.store');
     Route::get('admin/transaction/edit/{id}', [TransactionController::class, 'edit'])->name('admin.transaction.edit');
     Route::put('admin/transaction/edit/{id}', [TransactionController::class, 'update'])->name('admin.transaction.update');
     Route::get('admin/transaction/delete/{id}', [TransactionController::class, 'destroy'])->name('admin.transaction.delete');

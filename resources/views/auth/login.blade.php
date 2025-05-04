@@ -34,6 +34,14 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Entre para iniciar sua sessão</p>
+
+
+          <!-- Mensagem com dados de exemplo -->
+          <div class="alert alert-info text-start" role="alert">
+            <strong>Conta de exemplo:</strong><br>
+            <strong>Email:</strong> testedeadmin@gmail.com<br>
+            <strong>Senha:</strong> 123456789<br>
+          </div>
           @include('_message')
           <form action="{{url('login_post')}}" method="post">
             @csrf
